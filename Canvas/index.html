@@ -2,9 +2,35 @@
     <head>
         <link rel="stylesheet" type="text/css" href="main.css">
     </head>
-    <body>
-        <div>
-            <p>hello world</p>
-        </div>
+    <body onload="drawNextFrame()">
+            <h1>DAT KITTEH THO!</h1>
+        <CANVAS id="stage" width="640" height="480"></CANVAS>
+
+        <IMG SRC="kitten/walk/0.png" ID="kitten/walk/0" HEIGHT=0>
+		<IMG SRC="kitten/walk/1.png" ID="kitten/walk/1" HEIGHT=0>
+		<IMG SRC="kitten/walk/2.png" ID="kitten/walk/2" HEIGHT=0>
+		<IMG SRC="kitten/walk/3.png" ID="kitten/walk/3" HEIGHT=0>
+		<IMG SRC="kitten/walk/4.png" ID="kitten/walk/4" HEIGHT=0>
+		<IMG SRC="kitten/walk/5.png" ID="kitten/walk/5" HEIGHT=0>
+		<IMG SRC="kitten/walk/6.png" ID="kitten/walk/6" HEIGHT=0>
+		<IMG SRC="kitten/walk/7.png" ID="kitten/walk/7" HEIGHT=0>
+		<IMG SRC="garden.jpg" ID="garden" HEIGHT=0>
+
+        <script TYPE="text/javascript">
+
+        var stage = document.getElementById("stage");
+        var context = stage.getContext("2d");
+        var counter = 0;
+        var background = document.getElementById("garden");
+
+        function drawNextFrame()
+		{
+		    context.drawImage(background,0,0,stage.width,stage.height);
+		    var image = document.getElementById("kitten/walk/" + counter%8);
+		    context.drawImage(image, counter*10, stage.height-150);
+		    counter++;
+		    setTimeout(drawNextFrame,110);
+		}
+        </script>
     </body>
 </html>
