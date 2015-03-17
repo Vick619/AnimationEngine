@@ -1,36 +1,74 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+        <script>
+
+        	var mousedown = false;
+    
+		    $( document ).on( "mousemove", function( event ) {
+		        xMove = event.pageX;
+		        yMove = event.pageY;           
+		    });
+  
+			$( document ).ready(function(){
+				$("#a").mouseover(function(){$("#a").css("opacity","0.5");});
+				$("#a").mouseout(function(){ $("#a").css("opacity","1");});
+				$("#a").mousedown(function(){ mousedown = true; });
+				$("#a").mouseup(function(){ mousedown = false;});
+				setInterval(update, 33);
+			});
+			function update(){
+				if (mousedown){
+					$("#a").css("left",xMove-25);
+					$("#a").css("top",yMove-25);
+				}
+			}
+
+        </script>
     </head>
     <body onload="drawNextFrame()">
-            <h1>DAT KITTEH THO!</h1>
-        <CANVAS id="stage" width="640" height="480"></CANVAS>
+        <div id="container">
+	        <h1></h1>
 
-        <IMG SRC="kitten/walk/0.png" ID="kitten/walk/0" HEIGHT=0>
-		<IMG SRC="kitten/walk/1.png" ID="kitten/walk/1" HEIGHT=0>
-		<IMG SRC="kitten/walk/2.png" ID="kitten/walk/2" HEIGHT=0>
-		<IMG SRC="kitten/walk/3.png" ID="kitten/walk/3" HEIGHT=0>
-		<IMG SRC="kitten/walk/4.png" ID="kitten/walk/4" HEIGHT=0>
-		<IMG SRC="kitten/walk/5.png" ID="kitten/walk/5" HEIGHT=0>
-		<IMG SRC="kitten/walk/6.png" ID="kitten/walk/6" HEIGHT=0>
-		<IMG SRC="kitten/walk/7.png" ID="kitten/walk/7" HEIGHT=0>
-		<IMG SRC="garden.jpg" ID="garden" HEIGHT=0>
+	        <IMG SRC="characters/kitten/walk/0.png" ID="kitten/walk/0" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/1.png" ID="kitten/walk/1" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/2.png" ID="kitten/walk/2" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/3.png" ID="kitten/walk/3" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/4.png" ID="kitten/walk/4" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/5.png" ID="kitten/walk/5" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/6.png" ID="kitten/walk/6" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/7.png" ID="kitten/walk/7" HEIGHT=0>
+			<IMG SRC="scenes/garden.jpg" ID="garden" HEIGHT=0>
 
-        <script TYPE="text/javascript">
+			<CANVAS id="stage" width="640" height="480"></CANVAS>
 
-        var stage = document.getElementById("stage");
-        var context = stage.getContext("2d");
-        var counter = 0;
-        var background = document.getElementById("garden");
+			<div id = "sideBar"></div>
+	        <div id = "topBar">
+	            <div class = "keyFrame" id = "a">A </div>
+	            <div class = "keyFrame" id = "b">B </div>
+	            <div class = "keyFrame" id = "c">C</div>
+	            <div class = "keyFrame" id = "d">D </div>
+	            <div class = "keyFrame" id = "e">E</div>
+	            <div class = "keyFrame" id = "f">F</div>
+	        </div>
 
-        function drawNextFrame()
-		{
-		    context.drawImage(background,0,0,stage.width,stage.height);
-		    var image = document.getElementById("kitten/walk/" + counter%8);
-		    context.drawImage(image, counter*10, stage.height-150);
-		    counter++;
-		    setTimeout(drawNextFrame,110);
-		}
-        </script>
+	        <script TYPE="text/javascript">
+
+		        var stage = document.getElementById("stage");
+		        var context = stage.getContext("2d");
+		        var counter = 0;
+		        var background = document.getElementById("garden");
+
+		        function drawNextFrame()
+				{
+				    context.drawImage(background,0,0,stage.width,stage.height);
+				    var image = document.getElementById("kitten/walk/" + counter%8);
+				    context.drawImage(image, counter*15, stage.height-150);
+				    counter++;
+				    setTimeout(drawNextFrame,110);
+				}	     
+	        </script>
+        </div>
     </body>
 </html>
