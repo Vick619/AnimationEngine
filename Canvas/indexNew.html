@@ -11,15 +11,16 @@
         <div id="container">
 	        <h1></h1>
             
-			<CANVAS id="stage" width="1000" height="700"></CANVAS>
-            <div id = "under"> under </div>
+			<CANVAS id="stage" width="1080" height="720"></CANVAS>
+            <CANVAS id="backgrounds" width="200" height="360"></CANVAS>
+            <CANVAS id="sprites" width="200" height="360"></CANVAS>
+            
             
             
 
 
-			<div id = "sideBar"></div>
+		
 	        <div id = "topBar">
-	            <div id = "top">
                 Speed: <input type="text" id="speed"> 
                 Size: <input type="text" id="size"> 
                 Attribute3: <input type="text" id="at3"> 
@@ -28,8 +29,9 @@
                 <button onclick="restart()">RESTART</button>
                 <button onclick="reset()">RESET</button>
             </div>
+        </div>
 
-            <div id = "keyframe"></div>
+            
 
 	       
                 
@@ -51,6 +53,13 @@
                 var height = 720;
 
                 //Document setup for 2D animation and graphics
+                var sp = document.getElementById("sprites");
+                var spCtx = sp.getContext("2d")
+
+                var bk = document.getElementById("backgrounds");
+                var bkCtx = bk.getContext("2d")
+
+
                 var c = document.getElementById("stage");
                 var g = c.getContext("2d")
                 	var	img = document.createElement("img");
@@ -79,34 +88,96 @@
                 var combCoor = 0;
 
                 var KF = 1;
+var spNumb = 0;
+var sprites = [];
 
 (function () {
         img.addEventListener("load", function () {
 		  clearCanvas();
-		  g.drawImage(img, 100, 100);
+		  spCtx.drawImage(img, 100, 100);
         });
 	// To enable drag and drop
-	c.addEventListener("dragover", function (evt) {
+	sp.addEventListener("dragover", function (evt) {
 		evt.preventDefault();
 	});
 	// Handle dropped image file - only Firefox and Google Chrome
-	c.addEventListener("drop", function (evt) {
+	sp.addEventListener("drop", function (evt) {
 		var files = evt.dataTransfer.files;
 		if (files.length > 0) {
 			var file = files[0];
 			if (typeof FileReader !== "undefined" && file.type.indexOf("image") != -1) {
 				var reader = new FileReader();
 				reader.onload = function (evt) {
-					img.src = evt.target.result;
-                    console.log(img.src);
+
+                    spNumb++;
+                    //console.log(spNumb);
+					
+                    var sprite =  document.createElement("img")
+                    sprite.src = evt.target.result;
+                    sprites.push(sprite);
+                    //console.log(sprites.length);
+
+                    for(i = 0; i < sprites.length; i++){
+                        //console.log(sprites[i]);
+
+                       spCtx.drawImage(sprites[i], 50, 0 + (i*110), 100, 100);
+                    }
 				};
 				reader.readAsDataURL(file);
 			}
 		}
 		evt.preventDefault();
+
 	});
         clearCanvas = function () {
-        g.clearRect(0, 0, canvas.width, canvas.height);
+        spCtx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+})();
+
+
+
+var bkNumb = 0;
+var backgrounds = [];
+(function () {
+        img.addEventListener("load", function () {
+          clearCanvas();
+          bkCtx.drawImage(img, 100, 100);
+        });
+    // To enable drag and drop
+    bk.addEventListener("dragover", function (evt) {
+        evt.preventDefault();
+    });
+    // Handle dropped image file - only Firefox and Google Chrome
+    bk.addEventListener("drop", function (evt) {
+        var files = evt.dataTransfer.files;
+        if (files.length > 0) {
+            var file = files[0];
+            if (typeof FileReader !== "undefined" && file.type.indexOf("image") != -1) {
+                var reader = new FileReader();
+                reader.onload = function (evt) {
+
+                    bkNumb++;
+                    //console.log(bkNumb);
+                    
+                    var background =  document.createElement("img")
+                    background.src = evt.target.result;
+                    backgrounds.push(background);
+                    console.log(backgrounds.length);
+
+                    for(i = 0; i < backgrounds.length; i++){
+                        console.log(backgrounds[i]);
+
+                       bkCtx.drawImage(backgrounds[i], 10, 0 + (i*110), 150, 100);
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        evt.preventDefault();
+
+    });
+        clearCanvas = function () {
+        bkCtx.clearRect(0, 0, canvas.width, canvas.height);
     };
 })();
     
@@ -149,8 +220,8 @@
 
                 //==============Listens for mouse movement and gets the mouse coordinates==============
                 c.addEventListener('mousemove', function() { // listens to the canvas for mouse moves
-                    var mouseX = event.clientX; //find the X movement
-                    var mouseY = event.clientY; //find the Y movement
+                    var mouseX = event.clientX - 12; //find the X movement
+                    var mouseY = event.clientY - 110; //find the Y movement
                     MX = mouseX; //link to global varibles
                     MY = mouseY; // ^
                 }); // end mouse move func
