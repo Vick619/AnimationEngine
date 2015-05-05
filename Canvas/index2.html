@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+        <script>
+//github test
+
+        </script>
+    </head>
+    <body onload="drawNextFrame()">
+        <div id="container">
+	        <h1></h1>
+
+	        <IMG SRC="characters/kitten/walk/0.png" ID="kitten/walk/0" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/1.png" ID="kitten/walk/1" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/2.png" ID="kitten/walk/2" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/3.png" ID="kitten/walk/3" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/4.png" ID="kitten/walk/4" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/5.png" ID="kitten/walk/5" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/6.png" ID="kitten/walk/6" HEIGHT=0>
+			<IMG SRC="characters/kitten/walk/7.png" ID="kitten/walk/7" HEIGHT=0>
+			<IMG SRC="scenes/garden.jpg" ID="garden" HEIGHT=0>
+
+			<CANVAS id="stage" width="1000" height="700"></CANVAS>
+
+			<div id = "sideBar"></div>
+	        <div id = "topBar">
+	            <div id = "top">
+                Speed: <input type="text" id="speed"> 
+                Size: <input type="text" id="size"> 
+                Attribute3: <input type="text" id="at3"> 
+                <button onclick="start()">START</button>
+                <button onclick="stop()">SHTAP</button>
+                <button onclick="restart()">RESTART</button>
+                <button onclick="reset()">RESET</button>
+            </div>
+
+            <div id = "keyframe"></div>
+
+	        <script TYPE="text/javascript">
+                //==============Setup GLOBAL varibles==============
+
+                //var's for canvas resolution
+                var width  = 1080;
+                var height = 720;
+
+                //Document setup for 2D animation and graphics
+                var c = document.getElementById("stage");
+                var g = c.getContext("2d")
+
+                //Var's setup for input html
+                var speed = document.getElementById('speed').value;
+                var Size  = document.getElementById('size').value;
+                var rot   = document.getElementById('at3').value;
+
+                //Var's for movement and object initialisation
+                var clicks = 0; //amount of clicks in the canvas
+                var moveX  = 0; //Mouse in the x-axis
+                var moveY  = 0; //Mouse in the y-axis
+
+                var startX = 0; //Starting position X (later defined by the first keyframe)
+                var startY = 0; //Starting position Y (later defined by the first keyframe)
+                var MX; //Mouse X container varible
+                var MY; //Mouse Y container varible
+                var keyframes = []; //array of keyframes
+
+                var start2 = false; //Is there enough keyframes for the animation to beguin?
+                var traveling = false; //Is the image on the move?
+
+                var coor1 = 0;
+                var coor2 = 0;
+                var combCoor = 0;
+
+                var KF = 1;
+
+
+                //==============Setup Function once the document is ready==============
+                $(document).ready(function() 
+                {
+                    img = new Image();
+                img.src = "images/frog.png";
+
+                    //-----------Listen for clicks, run function whenever a click occurs on the page---------
+                    addEventListener("click", function() {
+                        startX = MX; //save the mouse X position form the click
+                        startY = MY; //Save the y pos too
+
+                        //If statement states that if the click is below 30px to prevent keyframes being added when clicking input boxes.
+                        if( (MY > 30) && (traveling == false) ){
+
+                            clicks++; //Add to the number of clicks in the canvas
+                            var keyframe = {	// Add a single keyframe with 3 attributes
+                                numb: clicks,	// the click number
+                                Xpos: MX,		// X position of the KeyFrame
+                                Ypos: MY,		//	And Y pisition
+                            };
+
+
+
+                            keyframes.push(keyframe); //Adds the above 'keyframe' varible to the keyframeS array
+                            //ie, add a keyframe with attributes to the array
+
+                        }	
+                    }); //End the click listener func
+
+                    setInterval(update, 33); // Calls the Update() function 33 times a second
+                                             //Similar to processing's void Draw() funciton
+                });//End of setup func
+
+                //==============Listens for mouse movement and gets the mouse coordinates==============
+                c.addEventListener('mousemove', function() { // listens to the canvas for mouse moves
+                    var mouseX = event.clientX; //find the X movement
+                    var mouseY = event.clientY; //find the Y movement
+                    MX = mouseX; //link to global varibles
+                    MY = mouseY; // ^
+                }); // end mouse move func
+
+                //==============Update function (void Draw() 33x/sec)==============
+                function update(){
+
+                    clearBack(); // clears the canvas
+                    //Keyframes array
+                    for(i = 0; i < keyframes.length; i++){
+                        var keyPoint = keyframes[i];
+                        g.beginPath();
+                        g.fillStyle="#000000";
+                        g.rect(	keyPoint.Xpos - 2.5, keyPoint.Ypos - 2.5,5 ,5);
+                        g.fill();
+                    }
+
+                    speed = document.getElementById('speed').value;
+                    size = document.getElementById('size').value;
+                    rot = document.getElementById('at3').value;
+
+                    if(start2 == true){
+
+
+                            console.log(KF);
+                        var xdistance = keyframes[KF].Xpos - keyframes[KF-1].Xpos;
+                        var ydistance = keyframes[KF].Ypos - keyframes[KF-1].Ypos;
+                        var angle = Math.atan2(xdistance , ydistance);
+
+                        g.beginPath();
+                        g.fillStyle="#000000";
+                        g.fill();
+                        //g.rect(	(keyframes[KF-1].Xpos   - (size/2)) + moveX ,	(keyframes[KF-1].Ypos  - (size/2))+ moveY	,size ,size);
+                        g.stroke();
+
+                        //g.scale(size/10, size/10);
+
+                      //  g.rotate(rot);
+                        g.drawImage(img, keyframes[KF-1].Xpos + moveX - (size/2), keyframes[KF-1].Ypos + moveY - (size/2), size, size);
+                    //    g.rotate(-rot);
+
+
+
+
+                            if((diff(moveX,xdistance) > (speed/10)) || (diff(moveY,ydistance) > (speed/10))){
+                                moveX = moveX + Math.sin(angle)  * (speed/10);
+                                moveY = moveY + Math.cos(angle)  * (speed/10);
+                            }
+                            else{
+                                KF++;
+                                moveX = 0;
+                                moveY = 0;
+                                if (KF > keyframes.length - 1){
+                                    console.log("bigger");
+                                    KF = 1;
+
+                                }
+                            }
+
+                    }
+
+                    //console.log(traveling);	
+                }
+
+                function diff(a,b)
+                {
+                    if(a>b) return a-b;
+                    else return b-a;
+                }
+
+                function clearBack(){
+                    g.beginPath()
+                    g.fillStyle = "#FFFFFF";
+                    g.fill();
+                    g.clearRect(0,0,width,height);
+                }
+
+                function up(){
+
+
+                }
+                function start(){
+                    start2 = true;
+                }
+                function stop(){
+                    start2 = false;
+
+                }
+                function restart(){
+                    start2 = false;
+                    KF = 1;
+                    moveX = 0;
+                    moveY = 0;
+
+                }
+                function reset(){
+                    start2 = false;
+                   keyframes= [];
+                    KF = 1;
+                    moveX = 0;
+                    moveY = 0;
+
+                }
+	        </script>
+        </div>
+    </body>
+</html>
