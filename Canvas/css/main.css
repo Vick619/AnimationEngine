@@ -9,21 +9,28 @@ h1{
 }
 
 #topBar{
-	border:dotted;
+	border:inset;
+    border-color: #163AFF;
+    border-width: thick;
 	top:0px;
 	position:absolute;
 	width:1280px;
 	height:80px;
+    font-family: 'Cabin', sans-serif;
 }
 
 #stage{
-	border:dotted;
+	border:inset;
+    border-color: #163AFF;
+    border-width: thick;
 	position: absolute;
 	top:100px;
 }
 
 #backgrounds {
-	border:dotted;
+	border:inset;
+    border-color: #163AFF;
+    border-width: thick;
 	position:absolute;
 	top:460px;
 	left:1080px;
@@ -31,7 +38,9 @@ h1{
 
 }
 #sprites {
-	border:dotted;
+    border:inset;
+    border-color: #163AFF;
+    border-width: thick;
 	position:absolute;
 	top:100px;
 	left:1080px;
