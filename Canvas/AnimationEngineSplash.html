@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Animation Engine Tutorial</title>
+        <meta name="description" content="Instructions on Animation Engine">
+        <link rel="stylesheet" href="css/AnimationSplashCSS.css">
+    </head>
+    <script>
+        function animationEngine(){
+            window.location.href = "indexNew.html";
+        }
+    </script>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1 style="text-align:center">Animation Engine Start Up Tutorial</h1>
+            </div>
+            <div id="content">
+                <center><h3>Top Bar</h3></center>
+                <p>The top bar is the main control console for the animation engine, allowing you to change the speed, size and opacity of the animated object. <br/> The button next to the input boxs are the animation controls; such as play, stop, restart and reset.<br/>
+                <img src="http://blog.omer.london/wp-content/uploads/2012/05/different-input-boxes-ss.png"><img src="http://m.rgbimg.com/cache1tz8bd/users/a/am/ambroz/600/nOSDWaa.jpg"></p>
+                <center><h3>Using images</h3></center>
+                <p>Using images in the engine si fairly straight forward. Firstly make sure that all the images that you would like to use are saved somewhere on your computer, as using image URL's from the internet will not work. <br/><br/> Once the images have been saved on the computer, just drag and drop them into the boxes in which they will be used. i.e. Objects into the objects box and backgrounds into the background box.</p>
+                <center><h3>Almost there...</h3></center>
+                <p>Once all images are in their places, select the ones you would like to use by clicking on them. You cn at any point change your images by clicking on  diffrent image. <br/> Once you have the images that you want to use, start by setting a desired size and speed for the animation. <br/> At this point everything is all set up and you are able to start creatung keyframes for the motion path of the object/image.</p>
+                <input type="range"  min="0" max="100" />
+            </div>
+            <div id="footer">
+                <Center><button id="continueButton" onmousedown="animationEngine()">Continue</button></center>
+            </div>
+        </div>
+    </body>
+</html>
