@@ -9,15 +9,21 @@
         </script>
     </head>
     <body>
+<!--        <div id = "backg" class="fa fa-tachometer fa-3x"> <br>Insert picture here</div>-->
         <div id="container">
-			<CANVAS id="stage" width="1080" height="720"><h1></h1></CANVAS>
-            <CANVAS id="backgrounds" width="200" height="360"></CANVAS>
+	        <h1></h1>
+            
+			<CANVAS id="stage" width="1080" height="720"></CANVAS>
+            <CANVAS id="backgrounds" width="200" height="360"> 
+            
+            </CANVAS>
             <CANVAS id="sprites" width="200" height="360"></CANVAS>
             
             
             
 
 
+            
             <div id="simplymator">
                 <div id = "topBar">
                         <h1>Simplymator</h1>
@@ -34,7 +40,7 @@
             </div>
         </div>
     </body>
-                
+             
             
 <script>
  
@@ -86,6 +92,12 @@
                 var coor1 = 0;
                 var coor2 = 0;
                 var combCoor = 0;
+    
+                var imgRot = 0;
+                var imgOpc = 0;
+                var imgSiz = 0;
+                var imgSd = 0;
+                
 
                 var KF = 1;
 var spNumb = 0;
@@ -252,7 +264,7 @@ backgroundImg.src = "images/bk.png";
         startY = MY; //Save the y pos too
        // console.log(MY);
         //If statement states that if the click is below 30px to prevent keyframes being added when clicking input boxes.
-        if( (MY > 10)  ){
+        if( (MY > 10) && (MX <  1060) ){
             
             clicks++; //Add to the number of clicks in the canvas
             var keyframe = {	// Add a single keyframe with 3 attributes
@@ -267,8 +279,19 @@ backgroundImg.src = "images/bk.png";
 
 
 
+
             keyframes.push(keyframe); //Adds the above 'keyframe' varible to the keyframeS array
             //ie, add a keyframe with attributes to the array
+            for(i=0; i < keyframes.length; i++){
+            console.log("number: "+ keyframes[i].numb);
+            console.log("X: "+ keyframes[i].Xpos);
+            console.log("Y: "+ keyframes[i].Ypos);
+            console.log("Opacity: "+ keyframes[i].opacity);
+            console.log("Rot: "+ keyframes[i].rotation);
+            console.log("Speed: "+ keyframes[i].speed);
+            console.log("Size: "+ keyframes[i].size);
+            console.log("-------------------------");
+            }
 
         }	
     }); //End the click listener func
@@ -311,41 +334,33 @@ function update(){
         var xdistance = keyframes[KF].Xpos - keyframes[KF-1].Xpos;
         var ydistance = keyframes[KF].Ypos - keyframes[KF-1].Ypos;
         var angle = Math.atan2(xdistance , ydistance);
+        
+        
 
         g.beginPath();
         g.fillStyle="#000000";
         g.fill();
-        //g.rect(	(keyframes[KF-1].Xpos   - (size/2)) + moveX ,	(keyframes[KF-1].Ypos  - (size/2))+ moveY	,size ,size);
+       
         g.stroke();
 
-        //g.scale(size/10, size/10);
-
-    
+        var imgRotDif = keyframes[KF].rotation - keyframes[KF-1].rotation;
+        var factor = imgRotDif / diff(moveY,ydistance);
+        console.log(factor);
+        
+        
         
         g.save();
         g.translate(keyframes[KF-1].Xpos + moveX , keyframes[KF-1].Ypos + moveY);
-
-      //  g.translate(    ( keyframes[KF-1].Xpos + moveX - (size/2))/2 ,  (keyframes[KF-1].Ypos + moveY - (size/2))/2 );
-        
-      
-
-        g.rotate(rot *Math.PI/180);
-        
-        g.globalAlpha = opc/100;
-        
-        
-        
-        
-        g.drawImage(img, -size/2, -size/2, size, size);
-        
-        
+        g.rotate(factor *Math.PI/180);
+        g.globalAlpha = keyframes[KF].opacity/100;
+        g.drawImage(img, -keyframes[KF].size/2, -keyframes[KF].size/2, keyframes[KF].size, keyframes[KF].size);
         g.globalAlpha = 1;
-
-     g.restore();
+        g.restore();
 
             if((diff(moveX,xdistance) > (speed/10)) || (diff(moveY,ydistance) > (speed/10))){
                 moveX = moveX + Math.sin(angle)  * (speed/10);
                 moveY = moveY + Math.cos(angle)  * (speed/10);
+                
             }
             else{
                 KF++;
