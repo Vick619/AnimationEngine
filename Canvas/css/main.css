@@ -3,37 +3,49 @@ body{
 }
 
 h1{
-	color:#AAAAAA;
-	z-index: 1;
+	color:#383838;
+    font-size: 50;
+    background-color: transparent;
+    position: absolute;
+    margin-top: 0px;
+    left:21px;
+    color: rgba(181, 50, 72, 0.9);
+    text-shadow: 0px 1px 1px #ff8787, 0 0 0 #000, 0px 0px 0px transparent;
 }  
 
 
 #container {
-    width: 100%;
+    width: 200px;
+    background-color: #c7b299;
+    position: auto;
+    z-index: 1;
 }
 
 #topBar{
 /*	border: 1px solid #393838;*/
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 0px 5px 5px #383838;
 	top:0px;
 	position:absolute;
+    background-color: #b53248;
 	width:1280px;
-	height:100px;
+	height:130px;
     cursor: pointer;
 }
 
 #stage{
 /*	border: 1px solid #393838;*/
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 0px 5px 5px #383838;
 	position: absolute;
+    background-color: #b53248;
 	top:100px;
     cursor: pointer;
 }
 
 #backgrounds {
 /*	border: 1px solid #393838;*/
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 0px 5px 5px #383838 inset;
 	position:absolute;
+    background-color: #c7b299;
 	top:460px;
 	left:1089px;
     cursor: pointer;
@@ -42,8 +54,9 @@ h1{
 }
 #sprites {
 /*	border: 1px solid #393838;*/
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 0px 5px 5px #383838 inset;
 	position:absolute;
+    background-color: #c7b299;
 	top:100px;
 	left:1089px;
     cursor: pointer;
@@ -52,7 +65,7 @@ h1{
 
 .keyFrame {
 	border: none;
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px #383838;
 	width:50px;
 	height:50px;
 	border-radius:0%;
@@ -64,16 +77,17 @@ h1{
 }
 
 button{
-    padding: 10px 27px 11px !important;
-    font-size: 20px !important;
-    background-color: #d0d0d0;
+    padding: 3px 27px 11px !important;
+    font-size: 40px !important;
+    background-color: transparent;
     font-weight: bold;
-    text-shadow: 1px 1px #d0d0d0;
-    color: #f5fcfd;
+    color: #b53248;
+    text-shadow: 0px 1px 1px #b53248, 0px 1px 1px #000, 0px -1px 0px #ff8787;
+/*    color: #393838;*/
     border-radius: 0px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 2px;
-    border: 1px solid #d0d0d0;
+    border: 1px solid transparent;
     cursor: pointer;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
     -moz-box-shadow: 0 0px 0 rgba(255, 255, 255, 0.5) inset;
@@ -81,13 +95,28 @@ button{
 }
 
 
+/*
+.fa.insetembossed {
+    color: #b53248;
+    text-shadow: 0px 0.8px 0.8px #b53248, 0px 0.8px 0.8px #000, 0px 0px 0px #fff;
+}
+*/
+.fa.insetembossed {
+    color: rgba(181, 50, 72, 0.9);
+    text-shadow: 0px 1px 1px #ff8787, 0 0 0 #000, 0px 0px 0px transparent;
+}
+
+
 /*code sourced from : http://codepen.io/chriscoyier/pen/FtnAa*/
 input[type=range] {
   -webkit-appearance: none;
   padding-left: 20px;
-  margin: 2% 0;
-  width: 15%;
-  background-color: #f5fcfd;
+  margin: 5% 0;
+  width: 15.8%;
+  background-color: transparent;
+  color: #c7b299;
+  letter-spacing: 10px;
+  text-shadow: 2px 2px 2px #c7b299 inset;
 }
 input[type=range]:focus {
   outline: none;
@@ -103,12 +132,13 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0px solid #000101;
 }
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-  border: 0px solid #000000;
+  color: #b53248;
+  box-shadow: 0px 0.8px 0.8px #b53248, 0px 0.8px 0.8px #000, 0px -0.8px -0px #fff;
+  border: 0px solid #c7b299;
   height: 20px;
   width: 39px;
   border-radius: 2px;
-  background: #d0d0d0;
+  background: #c7b299;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -3.6px;
@@ -146,13 +176,13 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #9a9a9a;
+  background: #c7b299;
   border: 0px solid #000101;
   border-radius: 0px;
   box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
 }
 input[type=range]::-ms-fill-upper {
-  background: #9a9a9a;
+  background: #c7b299;
   border: 0px solid #000101;
   border-radius: 0px;
   border-radius: 0px;
@@ -168,8 +198,8 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #9a9a9a;
+  background: #c7b299;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #9a9a9a;
+  background: #c7b299;
 }

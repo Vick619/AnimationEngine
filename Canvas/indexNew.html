@@ -10,9 +10,7 @@
     </head>
     <body>
         <div id="container">
-	        <h1></h1>
-            
-			<CANVAS id="stage" width="1080" height="720"></CANVAS>
+			<CANVAS id="stage" width="1080" height="720"><h1></h1></CANVAS>
             <CANVAS id="backgrounds" width="200" height="360"></CANVAS>
             <CANVAS id="sprites" width="200" height="360"></CANVAS>
             
@@ -21,16 +19,17 @@
 
 
             <div id="simplymator">
-                <h1>Simpymator</h1>
-               <div id = "topBar">
-                        <input class="fa fa-tachometer fa-3x" type="range" min="0" max="200" value="0" id="speed"> 
-                        <input class="fa fa-expand fa-3x" type="range" min="0" max="300" value="50" id="size"> 
-                        <input class="fa fa-circle-o fa-3x" type="range" min="0" max="100" value="100" id="opacity"> 
-                        <input class="fa fa-refresh fa-3x" type="range" min="0" max="360" value="0" id="rotation"> 
+                <div id = "topBar">
+                        <h1>Simplymator</h1>
+                        <input class="fa fa-tachometer fa-3x insetembossed" type="range" min="0" max="200" value="0" id="speed"> 
+                        <input class="fa fa-expand fa-3x insetembossed" type="range" min="0" max="300" value="50" id="size"> 
+                        <input class="fa fa-circle-o fa-3x insetembossed" type="range" min="0" max="100" value="100" id="opacity"> 
+                        <input class="fa fa-refresh fa-3x insetembossed" type="range" min="0" max="360" value="0" id="rotation"> 
                         <button class="fa fa-play fa-2x" onclick="start()"></button>
                         <button class="fa fa-pause fa-2x" onclick="stop()"></button>
                         <button class="fa fa-step-backward fa-2x" onclick="restart()"></button>
                         <button class="fa fa-undo fa-2x" onclick="reset()"></button>
+                        <button class="fa fa-info-circle fa-2x" onclick="reset()"></button>
                 </div>
             </div>
         </div>
