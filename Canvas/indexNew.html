@@ -20,25 +20,21 @@
             
 
 
-		
-	   <div id = "topBar">
-                <input class="fa fa-tachometer fa-3x" type="range" min="0" max="200" value="0" id="speed"> 
-                </i><input class="fa fa-expand fa-3x" type="range" min="0" max="300" value="50" id="size"> 
-                </i><input class="fa fa-circle-o fa-3x" type="range" min="0" max="100" value="100" id="opacity"> 
-                </i><input class="fa fa-expand fa-3x" type="range" min="0" max="360" value="50" id="rotation"> 
-                <button class="fa fa-play fa-2x" onclick="start()"></button>
-                <button class="fa fa-pause fa-2x" onclick="stop()"></button>
-                <button class="fa fa-step-backward fa-2x" onclick="restart()"></button>
-                <button class="fa fa-undo fa-2x" onclick="reset()"></button>
+            <div id="simplymator">
+                <h1>Simpymator</h1>
+               <div id = "topBar">
+                        <input class="fa fa-tachometer fa-3x" type="range" min="0" max="200" value="0" id="speed"> 
+                        <input class="fa fa-expand fa-3x" type="range" min="0" max="300" value="50" id="size"> 
+                        <input class="fa fa-circle-o fa-3x" type="range" min="0" max="100" value="100" id="opacity"> 
+                        <input class="fa fa-refresh fa-3x" type="range" min="0" max="360" value="0" id="rotation"> 
+                        <button class="fa fa-play fa-2x" onclick="start()"></button>
+                        <button class="fa fa-pause fa-2x" onclick="stop()"></button>
+                        <button class="fa fa-step-backward fa-2x" onclick="restart()"></button>
+                        <button class="fa fa-undo fa-2x" onclick="reset()"></button>
+                </div>
             </div>
         </div>
-
-            
-
-	       
-                
-                
-                
+    </body>
                 
             
 <script>
@@ -405,6 +401,4 @@ function reset(){
 
 }
 </script>
-        </div>
-    </body>
 </html>
