@@ -12,7 +12,7 @@
 <!--        <div id = "backg" class="fa fa-tachometer fa-3x"> <br>Insert picture here</div>-->
         <div id="container">
 	        <h1></h1>
-            
+
             
             <div id  = "tutorial">
                 <div class = "tutPage" id = "page1">page1</div>
@@ -24,7 +24,12 @@
 			<CANVAS id="stage" width="1080" height="720"></CANVAS>
             <CANVAS id="backgrounds" width="200" height="360"> </CANVAS>
             <CANVAS id="sprites" width="200" height="360"></CANVAS>
-            
+            <div class = "fa fa-caret-square-o-down fa-2x insetembossed" id = "backdropTut" >
+            <br>Drag Backdrop Here!<br> <font size="3">(Rollover to activate)</font>
+            </div>
+            <div class = "fa fa-caret-square-o-down fa-2x insetembossed" id = "spriteTut" width="200" height="360">
+            <br>Drag Sprites Here! <br> <font size="3"> (Rollover to activate)</font>
+            </div>
             
             
 
@@ -41,7 +46,7 @@
                         <button class="fa fa-pause fa-2x push_button" onclick="stop()"></button>
                         <button class="fa fa-step-backward fa-2x push_button" onclick="restart()"></button>
                         <button class="fa fa-undo fa-2x push_button" onclick="reset()"></button>
-                        <button class="fa fa-info-circle fa-2x push_button" onclick="reset()"></button>
+                        <button class="fa fa-info-circle fa-2x push_button" onclick="removeInfo()"></button>
                 </div>
             </div>
         </div>
@@ -49,12 +54,7 @@
              
             
 <script>
- 
-
-                
-                
-                
-                
+  
                 //==============Setup GLOBAL varibles==============
 
                 //var's for canvas resolution
@@ -103,8 +103,79 @@
                 var imgOpc = 0;
                 var imgSiz = 0;
                 var imgSd = 0;
-                
+                var play = false;
+    
+    
+     $( "#page2" ).hide;
+     $( "#page3" ).hide;
+     $( "#page4" ).hide;
+     $( "#page5" ).hide;
 
+    
+function p1b1(){
+         $( "#page1" ).fadeOut( "slow", function() { });
+         $( "#page2" ).fadeIn( "slow", function() { });
+}
+function p2b1(){
+         $( "#page1" ).fadeIn( "slow", function() { });
+         $( "#page2" ).fadeOut( "slow", function() { });}
+function p2b2(){
+         $( "#page2" ).fadeOut( "slow", function() { });
+         $( "#page3" ).fadeIn( "slow", function() { });
+}
+    
+function p3b1(){
+         $( "#page3" ).fadeOut( "slow", function() { });
+         $( "#page2" ).fadeIn( "slow", function() { });}
+function p3b2(){
+         $( "#page3" ).fadeOut( "slow", function() { });
+         $( "#page4" ).fadeIn( "slow", function() { });        
+}
+    
+function p4b1(){
+         $( "#page4" ).fadeOut( "slow", function() { });
+         $( "#page3" ).fadeIn( "slow", function() { });
+}
+function p4b2(){
+         $( "#page4" ).fadeOut( "slow", function() { });
+         $( "#page5" ).fadeIn( "slow", function() { });
+}
+    
+function p5b1(){
+         $( "#page5" ).fadeOut( "slow", function() { });
+         $( "#page4" ).fadeIn( "slow", function() { });
+}
+function download(){console.log("Downloading...");}
+    
+var hidden = false;
+function removeInfo(){
+    console.log(hidden);
+    if(hidden == false){
+         $( "#page1" ).fadeOut( "slow", function() { });
+         $( "#page2" ).fadeOut( "slow", function() { });
+         $( "#page3" ).fadeOut( "slow", function() { });
+         $( "#page4" ).fadeOut( "slow", function() { });
+         $( "#page5" ).fadeOut( "slow", function() { });
+        hidden = true;
+    }
+    else{
+        $( "#page1" ).fadeIn( "slow", function() { });
+        hidden = false;
+    }
+}
+                
+$( "#spriteTut" ).mouseenter(function() {
+  $( "#spriteTut" ).fadeOut( "slow", function() {
+   // $( "#spriteTut" ).hide;
+  });
+});
+    $( "#backdropTut" ).mouseenter(function() {
+  $( "#backdropTut" ).fadeOut( "slow", function() {
+   // $( "#spriteTut" ).hide;
+  });
+});
+
+    
                 var KF = 1;
 var spNumb = 0;
 var sprites = [];
@@ -330,7 +401,7 @@ function update(){
     clearBack(); // clears the canvas
     g.drawImage(backgroundImg, 0, 0, 1080, 720);
     //Keyframes array
-
+     if(play == false){
 
         for(i = 0; i < keyframes.length; i++){
             
@@ -355,7 +426,7 @@ function update(){
                 g.fill();
             }
 
-        
+         }
         }
 
     speed = document.getElementById('speed').value;
@@ -445,10 +516,11 @@ function clearBack(){
 
 function start(){
     start2 = true;
+    play = true;
 }
 function stop(){
     start2 = false;
-
+    play = false;
 }
 function restart(){
     start2 = false;
@@ -463,6 +535,7 @@ function reset(){
     KF = 1;
     moveX = 0;
     moveY = 0;
+    play = false;
 
 }
 </script>
