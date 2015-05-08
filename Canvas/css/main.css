@@ -37,7 +37,7 @@ h1{
     box-shadow: 0px 5px 5px #383838;
 	position: absolute;
     background-color: #b53248;
-	top:100px;
+	top:130px;
     cursor: pointer;
 }
 
@@ -46,7 +46,7 @@ h1{
     box-shadow: 0px 5px 5px #383838 inset;
 	position:absolute;
     background-color: #c7b299;
-	top:460px;
+	top:490px;
 	left:1089px;
     cursor: pointer;
 	
@@ -57,7 +57,7 @@ h1{
     box-shadow: 0px 5px 5px #383838 inset;
 	position:absolute;
     background-color: #c7b299;
-	top:100px;
+	top:130px;
 	left:1089px;
     cursor: pointer;
 	
