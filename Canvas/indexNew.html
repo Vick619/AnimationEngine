@@ -103,6 +103,7 @@
 var spNumb = 0;
 var sprites = [];
 
+
 (function () {
         img.addEventListener("load", function () {
 		  clearSpriteCanvas();
@@ -175,6 +176,8 @@ sp.addEventListener("click", function() {
 
 var bkNumb = 0;
 var backgrounds = [];
+
+
 (function () {
         img.addEventListener("load", function () {
           clearBackgroundCanvas();
@@ -200,11 +203,8 @@ var backgrounds = [];
                     
                     backgrounds[bkNumb] = document.createElement("img");
                     backgrounds[bkNumb].src = evt.target.result;
-                    bkNumb++;
                     
-                    if (bkNumb > 2){
-                        bkNumb = 0;
-                    }
+                   
                     //console.log(sprites.length);
                     clearBackgroundCanvas();
                     for(i = 0; i < backgrounds.length; i++){
@@ -212,6 +212,11 @@ var backgrounds = [];
 
                        bkCtx.drawImage(backgrounds[i], 50, 0 + (i*110), 150, 100);
                     }
+                     bkNumb++;
+                    if (bkNumb > 2){
+                        bkNumb = 0;
+                    }
+                    
                 };
                 reader.readAsDataURL(file);
             }
@@ -230,6 +235,7 @@ bk.addEventListener('mousemove', function() { // listens to the canvas for mouse
     bkY = mouseY;
     //console.log(bkY);
 }); // end mouse move func
+
 bk.addEventListener("click", function() {
     if (bkY < 460){
         backgroundImg =  backgrounds[0];
@@ -255,14 +261,17 @@ $(document).ready(function()
 {
     img = new Image();
     backgroundImg = new Image();
-img.src = "images/frog.png";
-backgroundImg.src = "images/bk.png";
+img.src = "images/sprites/sprite1.png";
+backgroundImg.src = "images/backdrops/bk1.png";
 
     //-----------Listen for clicks, run function whenever a click occurs on the page---------
-    addEventListener("click", function() {
+   
+
+  
+    c.addEventListener("click", function() {
         startX = MX; //save the mouse X position form the click
         startY = MY; //Save the y pos too
-       // console.log(MY);
+        console.log(MY + " Y and X "+ MX);
         //If statement states that if the click is below 30px to prevent keyframes being added when clicking input boxes.
         if( (MY > 10) && (MX <  1060) ){
             
@@ -276,24 +285,25 @@ backgroundImg.src = "images/bk.png";
                 speed: speed,
                 size: size,
             };
-
+    
 
 
 
             keyframes.push(keyframe); //Adds the above 'keyframe' varible to the keyframeS array
             //ie, add a keyframe with attributes to the array
             for(i=0; i < keyframes.length; i++){
-            console.log("number: "+ keyframes[i].numb);
-            console.log("X: "+ keyframes[i].Xpos);
-            console.log("Y: "+ keyframes[i].Ypos);
-            console.log("Opacity: "+ keyframes[i].opacity);
-            console.log("Rot: "+ keyframes[i].rotation);
-            console.log("Speed: "+ keyframes[i].speed);
-            console.log("Size: "+ keyframes[i].size);
-            console.log("-------------------------");
+//            console.log("number: "+ keyframes[i].numb);
+//            console.log("X: "+ keyframes[i].Xpos);
+//            console.log("Y: "+ keyframes[i].Ypos);
+//            console.log("Opacity: "+ keyframes[i].opacity);
+//            console.log("Rot: "+ keyframes[i].rotation);
+//            console.log("Speed: "+ keyframes[i].speed);
+//            console.log("Size: "+ keyframes[i].size);
+//            console.log("-------------------------");
             }
 
         }	
+    
     }); //End the click listener func
 
     setInterval(update, 33); // Calls the Update() function 33 times a second
@@ -314,28 +324,51 @@ function update(){
     clearBack(); // clears the canvas
     g.drawImage(backgroundImg, 0, 0, 1080, 720);
     //Keyframes array
-    for(i = 0; i < keyframes.length; i++){
-        var keyPoint = keyframes[i];
-        g.beginPath();
-        g.fillStyle="#000000";
-        g.rect(	keyPoint.Xpos - 2.5, keyPoint.Ypos - 2.5,5 ,5);
-        g.fill();
-    }
+
+
+        for(i = 0; i < keyframes.length; i++){
+            
+            if (i == 0){
+                g.beginPath();
+                g.fillStyle="#1ceb01";
+                g.rect(	keyframes[i].Xpos - 2.5, keyframes[i].Ypos - 2.5,5 ,5);
+                g.fill();
+            }
+            else if (i == keyframes.length - 1){
+                g.beginPath();
+                g.fillStyle="#eb4a0e";
+                g.rect(	keyframes[i].Xpos - 2.5, keyframes[i].Ypos - 2.5,5 ,5);
+                g.fill();
+            }
+            
+            else{
+                //var keyPoint = keyframes[i];
+                g.beginPath();
+                g.fillStyle="#383838";
+                g.rect(	keyframes[i].Xpos - 2.5, keyframes[i].Ypos - 2.5,5 ,5);
+                g.fill();
+            }
+
+        
+        }
 
     speed = document.getElementById('speed').value;
     size = document.getElementById('size').value;
     opc = document.getElementById('opacity').value;
     rot = document.getElementById('rotation').value;
-
+    if(keyframes.length > 0){
+        keyframes[keyframes.length-1].size = size;
+        keyframes[keyframes.length-1].rotation = rot;
+        keyframes[keyframes.length-1].opacity = opc;
+    }
     if(start2 == true){
 
-
+        
+        
            // console.log(KF);
         var xdistance = keyframes[KF].Xpos - keyframes[KF-1].Xpos;
         var ydistance = keyframes[KF].Ypos - keyframes[KF-1].Ypos;
         var angle = Math.atan2(xdistance , ydistance);
-        
-        
 
         g.beginPath();
         g.fillStyle="#000000";
@@ -345,13 +378,13 @@ function update(){
 
         var imgRotDif = keyframes[KF].rotation - keyframes[KF-1].rotation;
         var factor = imgRotDif / diff(moveY,ydistance);
-        console.log(factor);
+        //console.log(factor);
         
         
         
         g.save();
         g.translate(keyframes[KF-1].Xpos + moveX , keyframes[KF-1].Ypos + moveY);
-        g.rotate(factor *Math.PI/180);
+        g.rotate(keyframes[KF-1].rotation *Math.PI/180);
         g.globalAlpha = keyframes[KF].opacity/100;
         g.drawImage(img, -keyframes[KF].size/2, -keyframes[KF].size/2, keyframes[KF].size, keyframes[KF].size);
         g.globalAlpha = 1;
@@ -372,6 +405,18 @@ function update(){
                 }
             }
 
+    }
+    else if(keyframes.length > 0){
+        console.log("run");
+        g.save();
+        g.globalAlpha = keyframes[keyframes.length-1].opacity/100;
+        g.translate(keyframes[keyframes.length-1].Xpos, keyframes[keyframes.length-1].Ypos);
+        g.rotate(keyframes[keyframes.length-1].rotation *Math.PI/180);
+        g.drawImage(img, 0 - (keyframes[keyframes.length-1].size/2), 0 - (keyframes[keyframes.length-1].size/2) ,  keyframes[keyframes.length-1].size , keyframes[keyframes.length-1].size);
+      //  g.drawImage(img, keyframes[keyframes.length-1].Xpos - keyframes[keyframes.length-1].size/2, keyframes[keyframes.length-1].Ypos - keyframes[keyframes.length-1].size/2, keyframes[keyframes.length-1].size, keyframes[keyframes.length-1].size);
+         g.globalAlpha = 1;
+        
+        g.restore();
     }
 
     //console.log(traveling);	

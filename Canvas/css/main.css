@@ -67,7 +67,7 @@ i{
 /*    box-shadow: 0px 10px 10px #b53248;*/
 	position: absolute;
     background-color: #b53248;
-	top:100px;
+	top:130px;
     cursor: pointer;
     background: -webkit-linear-gradient(0deg, #b53248 0, #b53248 98%, #c7b299 99%, #c7b299 99%, #b53248 100%);
   background: -moz-linear-gradient(90deg, #b53248 0, #b53248 98%, #c7b299 99%, #c7b299 99%, #b53248 100%);
@@ -86,7 +86,7 @@ i{
 /*    box-shadow: 0px 5px 5px #383838 inset;*/
 	position:absolute;
     background-color: #c7b299;
-	top:460px;
+	top:490px;
 	left:1088px;
     cursor: pointer;
     background: -webkit-linear-gradient(-90deg, #b53248 0, #b53248 3% , #7c0c1d 3.5% , #c7b299 4%, #c7b299 100%);
@@ -107,8 +107,8 @@ i{
 /*    box-shadow: 0px 5px 5px #383838 inset;*/
 	position:absolute;
     background-color: #c7b299;
-	top:100px;
-	left:1088px;
+	top:130px;
+	left:1088px;s
     cursor: pointer;
     background: -webkit-linear-gradient(-90deg, #c7b299 0, #c7b299 1%, #c7b299 96.5%, #ff8787 96.5%, #b53248 97%, #b53248 100%);
     background: -moz-linear-gradient(180deg, #c7b299 0, #c7b299 1%, #c7b299 96.5%, #ff8787 96.5%, #b53248 97%, #b53248 100%);
