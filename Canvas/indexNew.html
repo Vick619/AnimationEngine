@@ -14,9 +14,7 @@
 	        <h1></h1>
             
 			<CANVAS id="stage" width="1080" height="720"></CANVAS>
-            <CANVAS id="backgrounds" width="200" height="360"> 
-            
-            </CANVAS>
+            <CANVAS id="backgrounds" width="200" height="360"> </CANVAS>
             <CANVAS id="sprites" width="200" height="360"></CANVAS>
             
             
@@ -210,7 +208,7 @@ var backgrounds = [];
                     for(i = 0; i < backgrounds.length; i++){
                         //console.log(backgrounds[i]);
 
-                       bkCtx.drawImage(backgrounds[i], 50, 0 + (i*110), 150, 100);
+                       bkCtx.drawImage(backgrounds[i], 20, 0 + (i*110)+20, 150, 100);
                     }
                      bkNumb++;
                     if (bkNumb > 2){
