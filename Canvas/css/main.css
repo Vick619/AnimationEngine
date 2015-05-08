@@ -10,6 +10,17 @@ body{
     background-color: #a3a3a3; 
 }
 
+
+.tutPage{
+       left: 1300px;
+        height:850px;
+        background-color: #FF0000;
+        width:100%;
+        top:0px;
+        position: absolute;
+}
+
+
 h1{
 	color:#383838;
     font-size: 50;
