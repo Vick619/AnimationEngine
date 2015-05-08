@@ -45,6 +45,30 @@ body{
     box-shadow: 0px 5px 5px #383838;
 }
 
+.tutp{
+    padding: 5px;
+    text-align: center;
+    font-family: myfirstfont;
+    font-size: 40;
+    color: #383838;
+}
+
+.tutp2{
+    padding: 10px;
+    text-align: center;
+    font-family: myfirstfont;
+    font-size: 40;
+    color: #383838;
+}
+
+#elogo{
+    height: 150px;
+}
+
+#keytut{
+    height: 300px;
+
+}
 
 h1{
 	color:#383838;
@@ -111,6 +135,19 @@ i{
     cursor: pointer;
 }
 
+.keyFrame {
+	border: none;
+    box-shadow: 5px 5px 5px #383838;
+	width:50px;
+	height:50px;
+	border-radius:0%;
+	text-align: center;
+	margin-top:10px;
+	background-color: #FF6600;
+	z-index: 25;
+    cursor: pointer;
+}
+
 #backgrounds {
 	position:absolute;
     background-color: #c7b299;
@@ -148,42 +185,9 @@ i{
     background-size: auto auto;
 }
 
-.keyFrame {
-	border: none;
-    box-shadow: 5px 5px 5px #383838;
-	width:50px;
-	height:50px;
-	border-radius:0%;
-	text-align: center;
-	margin-top:10px;
-	background-color: #FF6600;
-	z-index: 25;
-    cursor: pointer;
-}
-
-.tutp{
-    padding: 5px;
-    text-align: center;
-    font-family: myfirstfont;
-    font-size: 40;
-    color: #383838;
-}
-
-.tutp2{
-    padding: 10px;
-    text-align: center;
-    font-family: myfirstfont;
-    font-size: 40;
-    color: #383838;
-}
-
-#elogo{
-    height: 150px;
-}
-
-#keytut{
-    height: 300px;
-
+.fa.insetembossed {
+    color: rgba(70, 70, 70, 0.9);
+    text-shadow: 0px 1px 1px #ff8787, 0 0 0 #000, 0px 0px 0px transparent;
 }
 
 button{
@@ -220,20 +224,8 @@ button{
     outline: none;
 }
 
-/*
-.fa.insetembossed {
-    color: #b53248;
-    text-shadow: 0px 0.8px 0.8px #b53248, 0px 0.8px 0.8px #000, 0px 0px 0px #fff;
-}
-*/
-
-.fa.insetembossed {
-    color: rgba(70, 70, 70, 0.9);
-    text-shadow: 0px 1px 1px #ff8787, 0 0 0 #000, 0px 0px 0px transparent;
-}
-
-
 /*code sourced from : http://codepen.io/chriscoyier/pen/FtnAa*/
+/*===============Custom Sliders on top bar===================*/
 
 input[type=range] {
   -webkit-appearance: none;

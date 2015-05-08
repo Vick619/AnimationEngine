@@ -9,7 +9,9 @@
     <body>
         
         <div id="container">
-            <div id  = "tutorial">
+            <div id  = "tutorial"> 
+<!--Tutorial Pages-->
+                ====================================
                 <div class = "tutPage" id = "page1">
                     <CENTER><h2 class="insetembossed">What's Up!</h2></CENTER>
                     <p class="tutp">Welcome to the Simplymator.<br/>
@@ -18,29 +20,21 @@
                         <img id="elogo" src="images/ELOGO.png">
                     </center>
                     <center>
-                        <button id="btn1P1" class="fa fa-arrow-right fa-2x push_button"></button>
+                        <button id="btn1P1" class="fa fa-arrow-right fa-2x push_button" onclick="p1b1()"></button>
                     </center>
                 </div>
+                ====================================
                 <div class = "tutPage" id = "page2">
                     <p class="tutp2">See the two boxes on the right side of the screen?<br/>
                     The top box is where you can drag and drop your won characters/images into.<br/>
-                    The bottom box is where you can drag and drop your own background imahes into.</p>
-                    <center>
-                        <button id="btn1P2" class="fa fa-arrow-left fa-2x push_button"></button>
-                        <button id="btn2P2" class="fa fa-arrow-right fa-2x push_button"></button>
-                    </center>
-                    <center><img id="elogo" src="images/ELOGO.png"></center>
-                    <center><button id="btn1P1" class="fa fa-arrow-right fa-2x push_button" onclick="p1b1()"></button></center>
-                </div>
-                <div class = "tutPage" id = "page2">
-                    <p class="tutp2">See the two boxes on the right side of the screen?<br/>
-                        The top box is where you can drag and drop your won characters/images into.<br/>
-                        The bottom box is where you can drag and drop your own background imahes into.</p>
+                    The bottom box is where you can drag and drop your own background images into.<br/>
+                    For this to work for your own images, make sure they are saved on your desktop first, then drag and drop them in.</p>
                     <center>
                         <button id="btn1P2" class="fa fa-arrow-left fa-2x push_button" onclick="p2b1()"></button>
-                        <button id="btn2P2" class="fa fa-arrow-right fa-2x push_button"onclick="p2b2()"></button>
+                        <button id="btn2P2" class="fa fa-arrow-right fa-2x push_button" onclick="p2b2()"></button>
                     </center>
                 </div>
+                ====================================
                 <div class = "tutPage" id = "page3">
                     <p class="tutp2">To set a keyframe.<br/>
                     Click on the board where you would like to place it, then move the sliders to change your chracter to your preference, then repeat for the following keyframes</p>
@@ -48,10 +42,11 @@
                         <img id="keytut" src="images/keytut.png">
                     </center>
                     <center>
-                        <button id="btn1P3" class="fa fa-arrow-left fa-2x push_button"></button>
-                        <button id="btn2P3" class="fa fa-arrow-right fa-2x push_button"></button>
+                        <button id="btn1P3" class="fa fa-arrow-left fa-2x push_button" onclick="p3b1()"></button>
+                        <button id="btn2P3" class="fa fa-arrow-right fa-2x push_button" onclick="p3b2()"></button>
                     </center>
                 </div>
+                =====================================
                 <div class = "tutPage" id = "page4">
                     <p class="tutp2">The sliders at the top of the board will change your character/images:<br/>
                         <center>
@@ -62,10 +57,11 @@
                         </center>
                     </p>
                     <center>
-                        <button id="btn1P4" class="fa fa-arrow-left fa-2x push_button"></button>
-                        <button id="btn2P4" class="fa fa-arrow-right fa-2x push_button"></button>
+                        <button id="btn1P4" class="fa fa-arrow-left fa-2x push_button" onclick="p4b1()"></button>
+                        <button id="btn2P4" class="fa fa-arrow-right fa-2x push_button" onclick="p4b2()"></button>
                     </center>
                 </div>
+                ====================================
                 <div class = "tutPage" id = "page5">
                     <p class="tutp2">The four icons at the top are pretty simple to use:<br/>
                         <center>
@@ -76,21 +72,13 @@
                         </center>
                     </p>
                     <center>
-                        <button id="btn1P5" class="fa fa-arrow-left fa-2x push_button"></button>
-=======
-                    <center><button id="btn1P3" class="fa fa-arrow-left fa-2x push_button"onclick="p3b1()"></button><button id="btn2P3" class="fa fa-arrow-right fa-2x push_button"onclick="p3b2()"></button></center>
-                </div>
-                <div class = "tutPage" id = "page4">
-                    <p class="tutp2">The sliders at the top of the board will change your character/images:<br/> <center><p class="fa fa-tachometer fa-3x tutp2"> Speed</p><p class="fa fa-expand fa-3x tutp2">Size</p><p class="fa fa-circle-o fa-3x tutp2"> Opacity</p><p class="fa fa-refresh fa-3x tutp2"> Rotation</p></center></p>
-                    <center><button id="btn1P4" class="fa fa-arrow-left fa-2x push_button"onclick="p4b1()"></button><button id="btn2P4" class="fa fa-arrow-right fa-2x push_button"onclick="p4b2()"></button></center>
-                </div>
-
-                <div class = "tutPage" id = "page5">
-                    <p class="tutp2">The four icons at the top are pretty simple to use:<br/> <center><p class="fa fa-play fa-3x tutp2"> Play</p><p class="fa fa-pause fa-3x tutp2"> Pause</p><p class="fa fa-step-backward fa-3x tutp2"> Restart</p><p class="fa fa-undo fa-3x tutp2"> Reset Keyframes</p></center></p>
-                    <center><button id="btn1P5" class="fa fa-arrow-left fa-2x push_button"onclick="p5b1()"></button><form method="get" action="downloadables.zip"><button class="fa fa-arrow-down fa-2x push_button" type="submit">Download Presets</button></form>
->>>>>>> ab9b49f55d677c83ade76abfd26fdd7e45e685d8
+                        <button id="btn1P5" class="fa fa-arrow-left fa-2x push_button"onclick="p5b1()"></button>
+                        <form method="get" action="downloadables.zip">
+                            <button class="fa fa-arrow-down fa-2x push_button" type="submit">Download Presets</button>
+                        </form>
                     </center>
                 </div>
+                ====================================
             </div>
 			<CANVAS id="stage" width="1080" height="720"></CANVAS>
             <CANVAS id="backgrounds" width="200" height="360"> </CANVAS>
@@ -176,6 +164,7 @@
                 var imgSd = 0;
                 var play = false;
     
+//Tutorial Page Transitions ============================
     
      $( "#page2" ).hide();
      $( "#page3" ).hide();
@@ -218,7 +207,7 @@ function p5b1(){
          $( "#page4" ).fadeIn( "slow", function() { });
 }
 function download(){console.log("Downloading...");}
-    
+
 var hidden = false;
 function removeInfo(){
     console.log(hidden);
@@ -235,7 +224,9 @@ function removeInfo(){
         hidden = false;
     }
 }
-                
+
+//Fadeout of drop on image divs ======================
+    
 $( "#spriteTut" ).mouseenter(function() {
   $( "#spriteTut" ).fadeOut( "slow", function() {
    // $( "#spriteTut" ).hide;
@@ -247,8 +238,9 @@ $( "#spriteTut" ).mouseenter(function() {
   });
 });
 
+//Drag and drop feature for images ===================
     
-                var KF = 1;
+var KF = 1;
 var spNumb = 0;
 var sprites = [];
 
@@ -306,7 +298,6 @@ var spY;
 sp.addEventListener('mousemove', function() { // listens to the canvas for mouse moves
     var mouseY = event.clientY - 110; //find the Y movement
     spY = mouseY;
-   //console.log(spY);
 }); // end mouse move func
 sp.addEventListener("click", function() {
     if (spY < 100){
