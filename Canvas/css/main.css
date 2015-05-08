@@ -9,8 +9,32 @@ html{
 body{
     background-color: #a3a3a3; 
 }
-
-
+#spriteTut{
+    position: absolute;
+    background-color: #b53248;
+	top:150px;   
+    width:150px;
+    height:250px;
+    left:1110px;
+    text-align: center;
+    padding-top: 50px;
+/*    opacity:0.8;*/
+    text-align: center;
+    border-radius: 2;
+}
+#backdropTut{
+    position:absolute;
+    background-color: #b53248;
+	top:520px;
+	left:1110px;
+    width:150px;
+    height:250px;
+    text-align: center;
+    padding-top: 50px;
+/*    opacity:0.8;*/
+    text-align: center;
+    border-radius: 2;
+}
 .tutPage{
     left: 1300px;
     height:850px;
@@ -85,16 +109,6 @@ i{
     background-color: #b53248;
 	top:130px;
     cursor: pointer;
-    background: -webkit-linear-gradient(0deg, #b53248 0, #b53248 98%, #c7b299 99%, #c7b299 99%, #b53248 100%);
-    background: -moz-linear-gradient(90deg, #b53248 0, #b53248 98%, #c7b299 99%, #c7b299 99%, #b53248 100%);
-    background: linear-gradient(90deg, #b53248 0, #b53248 98%, #c7b299 99%, #c7b299 99%, #b53248 100%);
-    background-position: 50% 50%;
-    -webkit-background-origin: padding-box;
-    background-origin: padding-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    -webkit-background-size: auto auto;
-    background-size: auto auto;
 }
 
 #backgrounds {
