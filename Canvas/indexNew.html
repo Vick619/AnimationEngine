@@ -3,53 +3,78 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
         <script src="js/jquery-1.11.0.js" type="text/javascript"></script>
-        <script>
-//github test
-
-        </script>
     </head>
+    
+    
     <body>
-<!--        <div id = "backg" class="fa fa-tachometer fa-3x"> <br>Insert picture here</div>-->
+        
         <div id="container">
-	        <h1></h1>
-
-            
             <div id  = "tutorial">
-<!--
                 <div class = "tutPage" id = "page1">
                     <CENTER><h2 class="insetembossed">What's Up!</h2></CENTER>
                     <p class="tutp">Welcome to the Simplymator.<br/>
                     Hopefully this short tutorial will help explain how to use our awesome engine to create your own animations.</p>
-                    <center><img id="elogo" src="images/ELOGO.png"></center>
-                    <center><button id="btn1P1" class="fa fa-arrow-right fa-2x push_button"></button></center>
+                    <center>
+                        <img id="elogo" src="images/ELOGO.png">
+                    </center>
+                    <center>
+                        <button id="btn1P1" class="fa fa-arrow-right fa-2x push_button"></button>
+                    </center>
                 </div>
                 <div class = "tutPage" id = "page2">
-                    <p class="tutp2">See the two boxes on the right side of the screen?<br/> The top box is where you can drag and drop your won characters/images into.<br/> The bottom box is where you can drag and drop your own background imahes into.</p>
-                    <center><button id="btn1P2" class="fa fa-arrow-left fa-2x push_button"></button><button id="btn2P2" class="fa fa-arrow-right fa-2x push_button"></button></center>
+                    <p class="tutp2">See the two boxes on the right side of the screen?<br/>
+                    The top box is where you can drag and drop your won characters/images into.<br/>
+                    The bottom box is where you can drag and drop your own background imahes into.</p>
+                    <center>
+                        <button id="btn1P2" class="fa fa-arrow-left fa-2x push_button"></button>
+                        <button id="btn2P2" class="fa fa-arrow-right fa-2x push_button"></button>
+                    </center>
                 </div>
                 <div class = "tutPage" id = "page3">
-                    <p class="tutp2">To set a keyframe.<br/> Click on the board where you would like to place it, then move the sliders to change your chracter to your preference, then repeat for the following keyframes</p>
+                    <p class="tutp2">To set a keyframe.<br/>
+                    Click on the board where you would like to place it, then move the sliders to change your chracter to your preference, then repeat for the following keyframes</p>
                     <center><img id="keytut" src="images/keytut.png"></center>
-                    <center><button id="btn1P3" class="fa fa-arrow-left fa-2x push_button"></button><button id="btn2P3" class="fa fa-arrow-right fa-2x push_button"></button></center>
+                    <center>
+                        <button id="btn1P3" class="fa fa-arrow-left fa-2x push_button"></button>
+                        <button id="btn2P3" class="fa fa-arrow-right fa-2x push_button"></button>
+                    </center>
                 </div>
                 <div class = "tutPage" id = "page4">
-                    <p class="tutp2">The sliders at the top of the board will change your character/images:<br/> <center><p class="fa fa-tachometer fa-3x tutp2"> Speed</p><p class="fa fa-expand fa-3x tutp2">Size</p><p class="fa fa-circle-o fa-3x tutp2"> Opacity</p><p class="fa fa-refresh fa-3x tutp2"> Rotation</p></center></p>
-                    <center><button id="btn1P4" class="fa fa-arrow-left fa-2x push_button"></button><button id="btn2P4" class="fa fa-arrow-right fa-2x push_button"></button></center>
+                    <p class="tutp2">The sliders at the top of the board will change your character/images:<br/>
+                        <center>
+                            <p class="fa fa-tachometer fa-3x tutp2"> Speed</p>
+                            <p class="fa fa-expand fa-3x tutp2">Size</p>
+                            <p class="fa fa-circle-o fa-3x tutp2"> Opacity</p>
+                            <p class="fa fa-refresh fa-3x tutp2"> Rotation</p>
+                        </center>
+                    </p>
+                    <center>
+                        <button id="btn1P4" class="fa fa-arrow-left fa-2x push_button"></button>
+                        <button id="btn2P4" class="fa fa-arrow-right fa-2x push_button"></button>
+                    </center>
                 </div>
--->
                 <div class = "tutPage" id = "page5">
-                    <p class="tutp2">The four icons at the top are pretty simple to use:<br/> <center><p class="fa fa-play fa-3x tutp2"> Play</p><p class="fa fa-pause fa-3x tutp2"> Pause</p><p class="fa fa-step-backward fa-3x tutp2"> Restart</p><p class="fa fa-undo fa-3x tutp2"> Reset Keyframes</p></center></p>
-                    <center><button id="btn1P5" class="fa fa-arrow-left fa-2x push_button"></button></center>
+                    <p class="tutp2">The four icons at the top are pretty simple to use:<br/>
+                        <center>
+                            <p class="fa fa-play fa-3x tutp2"> Play</p>
+                            <p class="fa fa-pause fa-3x tutp2"> Pause</p>
+                            <p class="fa fa-step-backward fa-3x tutp2"> Restart</p>
+                            <p class="fa fa-undo fa-3x tutp2"> Reset Keyframes</p>
+                        </center>
+                    </p>
+                    <center>
+                        <button id="btn1P5" class="fa fa-arrow-left fa-2x push_button"></button>
+                    </center>
                 </div>
             </div>
 			<CANVAS id="stage" width="1080" height="720"></CANVAS>
             <CANVAS id="backgrounds" width="200" height="360"> </CANVAS>
             <CANVAS id="sprites" width="200" height="360"></CANVAS>
             <div class = "fa fa-caret-square-o-down fa-2x insetembossed" id = "backdropTut" >
-            <br>Drag Backdrop Here!<br> <font size="3">(Rollover to activate)</font>
+                <br>Drag Backdrop Here!<br> <font size="3">(Rollover to activate)</font>
             </div>
             <div class = "fa fa-caret-square-o-down fa-2x insetembossed" id = "spriteTut" width="200" height="360">
-            <br>Drag Sprites Here! <br> <font size="3"> (Rollover to activate)</font>
+                <br>Drag Sprites Here! <br> <font size="3"> (Rollover to activate)</font>
             </div>
             
             
